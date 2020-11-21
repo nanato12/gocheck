@@ -25,6 +25,8 @@ echo -e "\n${RESET}"
 
 echo -e "target path to check: ${TARGET_PATH_COLOR} $@ ${RESET}\n"
 
+cd $@
+
 echo -e "\n${VERSION_COLOR}$(go version)${RESET}"
 
 # go mod
