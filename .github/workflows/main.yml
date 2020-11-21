@@ -1,0 +1,13 @@
+name: gocheck
+
+on: [push]
+
+jobs:
+  gocheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: GitHub Action for golang code check
+        uses: nanato12/gocheck@master
+        with:
+          path: './'
