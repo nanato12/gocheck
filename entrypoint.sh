@@ -30,6 +30,7 @@ cd $@
 echo -e "\n${VERSION_COLOR}$(go version)${RESET}"
 
 # go mod
+TIME_A=`date +%s`
 if [ -e "go.mod" ];
 then
     # go build
@@ -49,6 +50,8 @@ then
         exit 1
     fi
 fi
+TIME_B=`date +%s`
+GOMOD_PROCCESS_TIME=$((TIME_B-TIME_A))
 
 # gofmt
 echo -e "\n${VERSION_COLOR}gofmt start${RESET}"
@@ -142,7 +145,7 @@ for file_name in `find .`; do
     fi
 done
 TIME_B=`date +%s`
-GOVET_PROCCESS_TIME=$((TIME_B-TIME_A))
+GOLINT_PROCCESS_TIME=$((TIME_B-TIME_A))
 set -e
 
 echo -e "${GOCHECK_COLOR}"
@@ -154,9 +157,11 @@ echo "##################################################"
 echo -e "${RESET}"
 
 echo -e "${TIME_COLOR}"
+echo "go mod: ${GOMOD_PROCCESS_TIME}s"
 echo "gofmt: ${GOFMT_PROCCESS_TIME}s"
 echo "goimports: ${GOIMPORTS_PROCCESS_TIME}s"
-echo "govet: ${GOVET_PROCCESS_TIME}s"
+echo "go vet: ${GOVET_PROCCESS_TIME}s"
+echo "golint: ${GOLINT_PROCCESS_TIME}s"
 echo -e "${RESET}"
 
 echo -e "\nfinish date: $(date)\n"
