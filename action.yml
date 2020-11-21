@@ -1,0 +1,18 @@
+name: 'gocheck'
+description: 'GitHub Action for golang code check'
+branding:
+  icon: 'check-square'
+  color: 'green'
+inputs:
+  path:
+    description: 'check path'
+    required: false
+    default: './'
+outputs:
+  output:
+    description: 'The output of gocheck'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.path }}
