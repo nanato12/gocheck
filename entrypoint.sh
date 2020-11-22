@@ -140,7 +140,7 @@ for file_name in `find .`; do
     then
         echo -e "  ${SUCCESS_COLOR}success${RESET}"
     else
-        echo -e "  ${ERROR_COLOR}failed${result}${RESET}"
+        echo -e "  ${ERROR_COLOR}failed\n${result}${RESET}"
         exit 1
     fi
 done
