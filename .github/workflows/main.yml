@@ -10,4 +10,4 @@ jobs:
       - name: GitHub Action for golang code check
         uses: nanato12/gocheck@master
         with:
-          path: './'
+          path: './test'
